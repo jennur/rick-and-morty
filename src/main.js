@@ -1,4 +1,4 @@
-import 'styles/app.scss';
+import './styles/app.scss';
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
 import ReactDOM from 'react-dom';
@@ -10,13 +10,15 @@ import {
 } from 'react-router-dom';
 
 import App from './components/App/App.jsx';
-import Layout from './components/Layout/Layout.jsx';
+import Home from './pages/Home';
+import CharacterSpecific from './pages/CharacterSpecific';
 
 const routes = (
     <HashRouter>
         <Switch>
             <App>
-                <Route path="/" exact component={Layout} />
+                <Route path="/" exact component={ Home } />
+                <Route path="/character/:id" exact component={ CharacterSpecific } />
             </App>
         </Switch>
     </HashRouter>
@@ -27,7 +29,7 @@ const outlet = document.getElementById('app')
 const render = () => {
     ReactDOM.render(
         <AppContainer>
-            {routes}
+                { routes }
         </AppContainer>,
         outlet
     );

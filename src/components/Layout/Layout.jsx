@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-
+import { Link } from 'react-router-dom';
 class Layout extends React.Component {
 
   static propTypes = {
@@ -11,8 +11,10 @@ class Layout extends React.Component {
       <div className="[ container ]">
           <div className="[ row ]">
             <div className="[ col-sm-12 ]">
-              <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Test Application</a>
+              <nav className="[ header ]">
+              <Link to="/">
+                <img className="[ header__image ]" src="https://www.freeiconspng.com/uploads/rick-and-morty-beige-folder-icon-1.png" alt="Rick and Morty Beige Folder Icon" />
+              </Link>
               </nav>
             </div>
           </div>
