@@ -1,5 +1,13 @@
 
-.header__image {
-    width: 130px;
-    padding: 20px 0px 0px;
+.header {
+
+
+    &__image {
+        width: 130px;
+        padding: 20px;
+        background-color: #fff;
+        margin: 20px;
+        border-radius: 5px;
+        border: 1px solid #000;
+    }
 }

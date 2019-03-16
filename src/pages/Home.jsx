@@ -50,18 +50,23 @@ export default class Home extends React.Component {
 
   handleSearchTerm(searchTerm) {
     const app = this;
-    fetch('https://rickandmortyapi.com/api/character/')
-    .then(response => { return response.json() })
-    .then(data => {
-          let characterObj = data.results;
-          let characters = characterObj.filter((character) => {
-          return (character.name.toLowerCase()).includes(searchTerm.toLowerCase()) ? character.name.indexOf(searchTerm) : false;
-        });
-        app.setState({
-          rickMortyCards: [], 
-          rickMortyObj: characters 
-        }, app.createCards());
-    });
+
+    if(searchTerm !== ""){
+      fetch('https://rickandmortyapi.com/api/character/')
+      .then(response => { return response.json() })
+      .then(data => {
+            let characterObj = data.results;
+            let characters = characterObj.filter((character) => {
+            return (character.name.toLowerCase()).includes(searchTerm.toLowerCase()) ? character.name.indexOf(searchTerm) : false;
+          });
+          app.setState({
+            rickMortyCards: [], 
+            rickMortyObj: characters 
+          }, app.createCards());
+      });
+    } else {
+      app.getData();
+    }
   }
 
   render() {
@@ -71,7 +76,7 @@ export default class Home extends React.Component {
     return(
         <div className="[ row ]">
           <div className="[ col-sm-12 ]">
-            <h2>Home Page</h2>
+            <h2>Rick and Morty characters</h2>
           </div>
           <div className="[ col-sm-12 ]">
             <Search onSearchTerm={ app.handleSearchTerm }></Search>

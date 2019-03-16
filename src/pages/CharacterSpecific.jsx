@@ -12,7 +12,7 @@ export default class CharacterSpecific extends React.Component {
     getData() {
         const app = this;
         fetch('https://rickandmortyapi.com/api/character/' + app.state.characterId)
-        .then(response => { return response.json();})
+        .then(response => { return response.json() })
         .then(data => { 
             app.setState({ 
                 rickMortyObj: data
@@ -23,6 +23,7 @@ export default class CharacterSpecific extends React.Component {
         const data = this.state.rickMortyObj;
         let specificCharacter = <Character image={ data.image }
                                            name={ data.name }
+                                           gender={ data.gender }
                                            species={ data.species }
                                 ></Character>
         return (
